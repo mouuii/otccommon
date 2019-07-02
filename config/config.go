@@ -8,8 +8,8 @@ import (
 	"github.com/spf13/viper"
 )
 
-//Init init config from path
-func Init(path string, config interface{}) {
+//Init init config from relative path,does not include extension
+func Init(path string, fileName string, config interface{}) {
 	if path == "" {
 		log.Fatal("config path is not given")
 	}
@@ -18,7 +18,7 @@ func Init(path string, config interface{}) {
 		log.Fatalf("config abs path err: %v", err)
 	}
 
-	viper.SetConfigName("config")
+	viper.SetConfigName(fileName)
 	viper.AddConfigPath(".")
 	viper.AddConfigPath(configPath)
 
