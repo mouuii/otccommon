@@ -13,4 +13,5 @@ type ServerCfg struct {
 // RedisCfg Redis general config
 type RedisCfg struct {
 	ConnectionURI string
+	Pwd           string
 }
