@@ -6,16 +6,16 @@ import (
 	"github.com/go-redis/redis"
 )
 
-var redisClient *redis.Client
+var RedisClient *redis.Client
 
 func InitRedis(cfg config.RedisCfg) error {
 	option := &redis.Options{
 		Addr:     cfg.ConnectionURI,
 		Password: cfg.Pwd,
 	}
-	redisClient = redis.NewClient(option)
+	RedisClient = redis.NewClient(option)
 
-	if _, err := redisClient.Ping().Result(); err != nil {
+	if _, err := RedisClient.Ping().Result(); err != nil {
 		return err
 	}
 	return nil
