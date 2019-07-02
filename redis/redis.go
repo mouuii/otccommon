@@ -6,7 +6,7 @@ import (
 	"github.com/go-redis/redis"
 )
 
-var redisClient *redisClient
+var redisClient *redis.Client
 
 func InitRedis(cfg config.RedisCfg) error {
 	option := &redis.Options{
