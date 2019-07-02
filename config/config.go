@@ -29,10 +29,11 @@ func Init(path string, fileName string, config interface{}) {
 	if err != nil {
 		log.Fatalf("unable to decode into struct, %v", err)
 	}
+	hotReload(config)
 }
 
-// HotReload hotreload config
-func HotReload(config interface{}) {
+// hotReload hotreload config
+func hotReload(config interface{}) {
 	viper.WatchConfig()
 	viper.OnConfigChange(func(e fsnotify.Event) {
 		log.Println("Config file changed:", e.Name)
